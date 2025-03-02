@@ -63,7 +63,7 @@ export default function Hero() {
 
       <div ref={sectionRef} className="w-full max-w-screen overflow-hidden">
         <motion.div
-          initial={{ y: 100, opacity: 0 }}
+          initial={{ y: 200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{
             duration: transitionDuration,

@@ -33,6 +33,7 @@
     /* background-color: var(--light-bg); */
     background-color: #f3f3f1;
     color: var(--body-text);
+    overflow-x: hidden; /* to prevent some overflwoings caused in the x direction because of animations along x axis */
   }
 
   ::-webkit-scrollbar {
