@@ -61,10 +61,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div
-        ref={sectionRef}
-        className="w-full h-[800px] max-w-screen overflow-hidden"
-      >
+      <div ref={sectionRef} className="w-full max-w-screen overflow-hidden">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -83,7 +80,7 @@ export default function Hero() {
             width={2000}
             height={1312}
             quality={100}
-            className="size-full object-cover object-center"
+            className="size-full object-cover object-center max-h-[50rem]"
           />
         </motion.div>
       </div>
