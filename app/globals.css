@@ -10,30 +10,28 @@
 }
 
 :root {
-  --light: #ffffff;
-  --dark: #000000;
-  --body-text: #0c120c;
+  --dark: #0c120c;
+  --body: #0c120c99;
   --primary-blue: #0048f9;
 }
 
 .dark {
-  --light: #ffffff;
-  --dark: #000000;
-  --body-text: #0c120c;
+  --dark: #0c120c99;
+  --body: #0c120c99;
   --primary-blue: #0048f9;
 }
 
 @theme inline {
-  --color-light: var(--light);
   --color-dark: var(--dark);
-  --color-body-text: var(--body-text);
+  --color-body: var(--body);
   --color-primary-blue: var(--primary-blue);
 }
 
 @layer base {
   body {
     font-family: var(--font-inter);
-    background-color: var(--light-bg);
+    /* background-color: var(--light-bg); */
+    background-color: #f3f3f1;
     color: var(--body-text);
   }
 }
