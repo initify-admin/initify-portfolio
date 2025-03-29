@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { ourProcesses } from "@/data/our-process";
+import { ourProcesses } from "@/data/our-processes";
 import {
   SectionContent,
   SectionContentWrapper,
