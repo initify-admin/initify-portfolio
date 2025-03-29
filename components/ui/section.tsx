@@ -1,22 +1,28 @@
 import React, { forwardRef } from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface SectionWrapperProps extends React.HTMLAttributes<HTMLElement> {
+interface SectionWrapperProps extends HTMLMotionProps<"section"> {
   className?: string;
 }
 
-interface SectionContentWrapperProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+interface SectionContentWrapperProps extends HTMLMotionProps<"div"> {
   className?: string;
 }
 
-interface SectionContentProps extends React.HTMLAttributes<HTMLDivElement> {
+interface SectionContentProps extends HTMLMotionProps<"div"> {
   className?: string;
 }
 
 const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
   ({ className, ...props }, ref) => {
-    return <section ref={ref} className={cn("w-full", className)} {...props} />;
+    return (
+      <motion.section
+        ref={ref}
+        className={cn("w-full overflow-hidden", className)}
+        {...props}
+      />
+    );
   }
 );
 SectionWrapper.displayName = "SectionWrapper";
@@ -26,7 +32,7 @@ const SectionContentWrapper = forwardRef<
   SectionContentWrapperProps
 >(({ className, ...props }, ref) => {
   return (
-    <div
+    <motion.div
       ref={ref}
       className={cn(
         "w-full flex justify-center px-6 sm:px-8 xl:px-16",
@@ -41,7 +47,7 @@ SectionContentWrapper.displayName = "SectionContentWrapper";
 const SectionContent = forwardRef<HTMLDivElement, SectionContentProps>(
   ({ className, ...props }, ref) => {
     return (
-      <div
+      <motion.div
         ref={ref}
         className={cn("w-full max-w-[1800px]", className)}
         {...props}
