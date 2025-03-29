@@ -4,6 +4,8 @@ import { ProjectItem as ProjectItemProps } from "@/types/our-projects";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function ProjectItem({
   name,
@@ -11,40 +13,51 @@ export default function ProjectItem({
   image,
   works,
 }: ProjectItemProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="flex flex-col gap-y-3">
+    <div
+      className="flex flex-col gap-y-3 overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="w-full flex justify-center items-center rounded-xl overflow-hidden">
-        <Image
-          src={image}
-          alt={name}
-          className="w-full h-full object-cover rounded-xl"
-        />
+        <motion.div
+          className="w-full h-auto rounded-xl"
+          animate={{ scale: isHovered ? 1.05 : 1 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <Image
+            src={image}
+            alt={name}
+            className="w-full h-auto object-cover rounded-xl"
+          />
+        </motion.div>
       </div>
 
-      <div className="flex flex-col gap-y-4">
-        <h1 className="text-[1.875rem] leading-[2.25rem] tracking-[-0.075rem] text-dark font-onest font-medium">
-          {name}
-        </h1>
+      <h1 className="text-[1.875rem] leading-[2.25rem] tracking-[-0.075rem] text-dark font-onest font-medium">
+        {name}
+      </h1>
 
-        <div className="flex gap-x-2 items-center flex-wrap">
-          {works.map((work, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center px-3 py-1.5 text-body rounded-xl border font-medium border-[rgba(12,18,12,.6)]"
-            >
-              {work}
-            </div>
-          ))}
-
-          <Link
-            href={liveLink}
-            target="_blank"
-            className="group p-2 rounded-xl"
+      <motion.div
+        className="flex gap-x-2 items-center flex-wrap"
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
+        {works.map((work, index) => (
+          <div
+            key={index}
+            className="flex items-center justify-center px-3 py-1.5 text-body rounded-xl border font-medium border-[rgba(12,18,12,.6)]"
           >
-            <MoveUpRight className="text-primary-blue size-5 lg:size-6 transition-transform duration-300 ease-in-out group-hover:rotate-45" />
-          </Link>
-        </div>
-      </div>
+            {work}
+          </div>
+        ))}
+
+        <Link href={liveLink} target="_blank" className="group p-2 rounded-xl">
+          <MoveUpRight className="text-primary-blue size-5 lg:size-6 transition-transform duration-300 ease-in-out group-hover:rotate-45" />
+        </Link>
+      </motion.div>
     </div>
   );
 }

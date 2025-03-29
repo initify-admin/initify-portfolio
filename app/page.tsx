@@ -8,16 +8,16 @@ import Vision from "@/components/vision";
 export default function Home() {
   return (
     <main className="flex flex-col items-start justify-start w-full">
-      {/* <Header />
+      <Header />
       <Hero />
       <Vision />
       <OurUses />
-      <OurProcess /> */}
+      <OurProcess />
 
       <OurProjects />
 
       {/* dummy height to test scroll */}
-      <div className="h-[200vh] w-full"></div>
+      <div className="h-dvh w-full"></div>
     </main>
   );
 }
