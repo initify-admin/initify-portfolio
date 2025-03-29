@@ -7,10 +7,10 @@ import Vision from "@/components/vision";
 export default function Home() {
   return (
     <main className="flex flex-col items-start justify-start w-full">
-      {/* <Header />
+      <Header />
       <Hero />
       <Vision />
-      <OurUses /> */}
+      <OurUses />
 
       <OurProcess />
 

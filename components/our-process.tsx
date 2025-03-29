@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { ourProcesses } from "@/data/our-process";
 import {
   SectionContent,
@@ -34,7 +35,7 @@ export default function OurProcess() {
   }, []);
 
   return (
-    <SectionWrapper className="py-24 bg-dark">
+    <SectionWrapper className="mt-24 py-24 bg-dark">
       <SectionContentWrapper>
         <SectionContent className="flex flex-col gap-y-[10rem]">
           <div className="flex justify-between items-start">
@@ -77,11 +78,12 @@ function ProcessItem({
   onClick,
 }: ProcessItemProps) {
   return (
-    <div
+    <motion.div
       onMouseEnter={onHover}
       onClick={onClick}
-      className={`flex flex-col p-8 justify-between border border-white/80 rounded-lg h-[31.25rem] transition-all duration-500 
-        ${isActive ? "w-[60%] opacity-100" : "w-[20%] opacity-20"}`}
+      animate={{ width: isActive ? "60%" : "20%", opacity: isActive ? 1 : 0.3 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="flex flex-col p-8 justify-between border border-white/80 rounded-lg h-[31.25rem]"
     >
       <div className="w-full flex flex-col gap-y-2">
         <h1 className="tracking-[0.023rem] font-onest font-medium text-white text-lg leading-6">
@@ -93,13 +95,13 @@ function ProcessItem({
         </h1>
       </div>
 
-      {/* Only show full description if active */}
-      <p
-        className={`tracking[-0.055rem] font-onest font-medium text-white/80 text-[1.375rem] leading-[1.875rem] max-w-[28.125rem] transition-opacity duration-300 
-          ${isActive ? "opacity-100" : "opacity-0"}`}
+      <motion.p
+        animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="tracking[-0.055rem] font-onest font-medium text-white/80 text-[1.375rem] leading-[1.875rem] max-w-[28.125rem]"
       >
         {description}
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   );
 }
