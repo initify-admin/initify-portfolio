@@ -29,7 +29,7 @@ const SectionContentWrapper = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "w-full flex justify-center px-6 sm:px-8 xl:px-16 pt-16 md:pt-[6.75rem] 2xl:pt-[11.25rem]",
+        "w-full flex justify-center px-6 sm:px-8 xl:px-16",
         className
       )}
       {...props}

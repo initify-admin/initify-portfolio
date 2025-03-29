@@ -25,7 +25,7 @@ export default function Hero() {
 
   return (
     <SectionWrapper className="flex flex-col justify-start items-start gap-y-16">
-      <SectionContentWrapper>
+      <SectionContentWrapper className="pt-16 md:pt-[6.75rem] 2xl:pt-[11.25rem]">
         <SectionContent className="flex justify-start flex-col lg:flex-row lg:justify-between gap-x-28 gap-y-8">
           <motion.div
             className="w-full max-w-[610px] 2xl:max-w-[780px] flex items-start justify-start"
