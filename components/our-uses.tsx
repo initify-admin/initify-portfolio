@@ -20,29 +20,29 @@ interface UseItemProps {
 }
 
 export default function OurUses() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const contentRef = useRef(null);
+  const isInView = useInView(contentRef, { once: true, margin: "-100px" });
 
   return (
     <SectionWrapper className="mt-24">
       <SectionContentWrapper>
-        <SectionContent className="flex flex-col gap-y-20">
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 100 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: transitionDuration,
-              ease: transitionEffect,
-            }}
-            className="w-full flex justify-between items-start"
-          >
+        <SectionContent
+          ref={contentRef}
+          initial={{ opacity: 0, y: 100 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: transitionDuration,
+            ease: transitionEffect,
+          }}
+          className="flex flex-col gap-y-20"
+        >
+          <div className="w-full flex justify-between items-start">
             <SectionSubheading className="max-w-[810px]">
               This is how we help ambitious companies succeed.
             </SectionSubheading>
 
             <SectionHeading>/Our Uses/</SectionHeading>
-          </motion.div>
+          </div>
 
           <div className="flex flex-col divide-y divide-[rgba(151,151,151,0.2)]">
             {ourUses.map((use, index) => (
@@ -70,40 +70,63 @@ function UseItem({ index, text, description }: UseItemProps) {
         initial: { backgroundColor: "transparent" },
         hover: { backgroundColor: "var(--primary-blue)" },
       }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <motion.div
         variants={{
-          initial: { x: 0, color: "#0c120c" },
-          hover: { x: 20, color: "#ffffff" }, // Move right & turn white
+          initial: { x: 0 },
+          hover: { x: 20 },
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="flex items-center justify-start gap-x-28"
       >
-        <h1 className="font-medium font-onest text-4xl tracking-[-0.158rem]">
-          0{index + 1}
-        </h1>
-
-        <h1 className="font-medium font-onest text-[4.5rem] tracking-[-0.315rem] leading-[4.95rem]">
-          {text}
-        </h1>
-      </motion.div>
-
-      <motion.div className="flex items-center justify-start gap-x-8 relative">
-        <motion.p
+        {/* Explicitly animate color */}
+        <motion.h1
           variants={{
-            initial: { opacity: 0, x: 0, color: "#0c120c" },
-            hover: { opacity: 1, x: -20, color: "#ffffff" },
+            initial: { color: "var(--dark)" },
+            hover: { color: "#ffffff" },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="text-base sm:text-lg xl:text-xl font-onest tracking-[-0.023rem] leading-6 xl:w-[610px] font-medium"
+          className="font-medium font-onest text-4xl tracking-[-0.158rem]"
+        >
+          0{index + 1}
+        </motion.h1>
+
+        <motion.h1
+          variants={{
+            initial: { color: "var(--dark)" },
+            hover: { color: "#ffffff" },
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="font-medium font-onest text-[4.5rem] tracking-[-0.315rem] leading-[4.95rem] whitespace-nowrap"
+        >
+          {text}
+        </motion.h1>
+      </motion.div>
+
+      <motion.div
+        variants={{
+          initial: { x: 0 },
+          hover: { x: -20 },
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="flex items-center justify-start gap-x-8 relative"
+      >
+        <motion.p
+          variants={{
+            initial: { opacity: 0, color: "var(--dark)" },
+            hover: { opacity: 1, color: "#ffffff" },
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="text-base sm:text-lg xl:text-xl font-onest tracking-[-0.023rem] leading-6 w-[610px] font-medium"
         >
           {description}
         </motion.p>
 
         <motion.div
           variants={{
-            initial: { opacity: 1, x: 0, color: "#0c120c" },
-            hover: { opacity: 0, x: -20, color: "#ffffff" },
+            initial: { opacity: 1, color: "var(--dark)" },
+            hover: { opacity: 0, color: "#ffffff" },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
