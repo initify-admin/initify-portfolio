@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { ourProcesses } from "@/data/our-process";
 import {
   SectionContent,
@@ -10,6 +10,7 @@ import {
   SectionSubheading,
   SectionWrapper,
 } from "./ui/section";
+import { transitionDuration, transitionEffect } from "@/lib/utils";
 
 interface ProcessItemProps {
   index: number;
@@ -23,11 +24,12 @@ interface ProcessItemProps {
 export default function OurProcess() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const contentRef = useRef(null);
+  const isInView = useInView(contentRef, { once: true, margin: "-100px" });
 
-  // Check if screen width is mobile size
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 768);
     };
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
@@ -37,7 +39,16 @@ export default function OurProcess() {
   return (
     <SectionWrapper className="mt-24 py-24 bg-dark">
       <SectionContentWrapper>
-        <SectionContent className="flex flex-col gap-y-[10rem]">
+        <SectionContent
+          ref={contentRef}
+          initial={{ opacity: 0, y: 100 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: transitionDuration,
+            ease: transitionEffect,
+          }}
+          className="flex flex-col gap-y-[10rem]"
+        >
           <div className="flex justify-between items-start">
             <SectionHeading className="text-white">
               /Our Process/
