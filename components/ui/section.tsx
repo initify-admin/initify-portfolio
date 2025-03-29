@@ -14,6 +14,16 @@ interface SectionContentProps extends HTMLMotionProps<"div"> {
   className?: string;
 }
 
+interface SectionHeadingProps extends HTMLMotionProps<"h1"> {
+  className?: string;
+  children: React.ReactNode;
+}
+
+interface SectionSubheadingProps extends HTMLMotionProps<"h1"> {
+  className?: string;
+  children: React.ReactNode;
+}
+
 const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
   ({ className, ...props }, ref) => {
     return (
@@ -57,4 +67,43 @@ const SectionContent = forwardRef<HTMLDivElement, SectionContentProps>(
 );
 SectionContent.displayName = "SectionContent";
 
-export { SectionWrapper, SectionContentWrapper, SectionContent };
+const SectionHeading = forwardRef<HTMLHeadingElement, SectionHeadingProps>(
+  ({ className, children, ...props }, ref) => (
+    <motion.h1
+      ref={ref}
+      className={cn(
+        "text-dark text-[0.938rem] sm:text-base text-lg uppercase tracking-[-.02rem] leading-[1.4rem] font-medium",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </motion.h1>
+  )
+);
+SectionHeading.displayName = "SectionHeading";
+
+const SectionSubheading = forwardRef<
+  HTMLHeadingElement,
+  SectionSubheadingProps
+>(({ className, children, ...props }, ref) => (
+  <motion.h1
+    ref={ref}
+    className={cn(
+      "text-[2.75rem] sm:text-[3.25rem] xl:text-[3.75rem] font-onest font-medium text-dark tracking-[-0.193rem] sm:tracking-[-0.228rem] xl:tracking-[-0.263rem] leading-[3.025rem] sm:leading-[3.575rem] xl:leading-[4.125rem]",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </motion.h1>
+));
+SectionSubheading.displayName = "SectionSubheading";
+
+export {
+  SectionWrapper,
+  SectionContentWrapper,
+  SectionContent,
+  SectionHeading,
+  SectionSubheading,
+};
