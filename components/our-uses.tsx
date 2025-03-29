@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import { PlusIcon } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   SectionWrapper,
   SectionContentWrapper,
@@ -10,6 +11,7 @@ import {
   SectionSubheading,
 } from "./ui/section";
 import { ourUses } from "@/data/our-uses";
+import { transitionDuration, transitionEffect } from "@/lib/utils";
 
 interface UseItemProps {
   index: number;
@@ -18,17 +20,29 @@ interface UseItemProps {
 }
 
 export default function OurUses() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
     <SectionWrapper className="mt-24">
       <SectionContentWrapper>
         <SectionContent className="flex flex-col gap-y-20">
-          <div className="w-full flex justify-between items-start">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 100 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: transitionDuration,
+              ease: transitionEffect,
+            }}
+            className="w-full flex justify-between items-start"
+          >
             <SectionSubheading className="max-w-[810px]">
               This is how we help ambitious companies succeed.
             </SectionSubheading>
 
             <SectionHeading>/Our Uses/</SectionHeading>
-          </div>
+          </motion.div>
 
           <div className="flex flex-col divide-y divide-[rgba(151,151,151,0.2)]">
             {ourUses.map((use, index) => (
