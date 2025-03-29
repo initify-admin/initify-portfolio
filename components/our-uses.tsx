@@ -15,7 +15,7 @@ import { transitionDuration, transitionEffect } from "@/lib/utils";
 
 interface UseItemProps {
   index: number;
-  text: string;
+  title: string;
   description: string;
 }
 
@@ -49,7 +49,7 @@ export default function OurUses() {
               <UseItem
                 key={index}
                 index={index}
-                text={use.text}
+                title={use.title}
                 description={use.description}
               />
             ))}
@@ -60,7 +60,7 @@ export default function OurUses() {
   );
 }
 
-function UseItem({ index, text, description }: UseItemProps) {
+function UseItem({ index, title, description }: UseItemProps) {
   return (
     <motion.div
       whileHover="hover"
@@ -87,7 +87,7 @@ function UseItem({ index, text, description }: UseItemProps) {
             hover: { color: "#ffffff" },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="font-medium font-onest text-4xl tracking-[-0.158rem]"
+          className="font-medium font-onest title-4xl tracking-[-0.158rem]"
         >
           0{index + 1}
         </motion.h1>
@@ -98,9 +98,9 @@ function UseItem({ index, text, description }: UseItemProps) {
             hover: { color: "#ffffff" },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="font-medium font-onest text-[4.5rem] tracking-[-0.315rem] leading-[4.95rem] whitespace-nowrap"
+          className="font-medium font-onest title-[4.5rem] tracking-[-0.315rem] leading-[4.95rem] whitespace-nowrap"
         >
-          {text}
+          {title}
         </motion.h1>
       </motion.div>
 
@@ -118,7 +118,7 @@ function UseItem({ index, text, description }: UseItemProps) {
             hover: { opacity: 1, color: "#ffffff" },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="text-base sm:text-lg xl:text-xl font-onest tracking-[-0.023rem] leading-6 w-[610px] font-medium"
+          className="title-base sm:title-lg xl:title-xl font-onest tracking-[-0.023rem] leading-6 w-[610px] font-medium"
         >
           {description}
         </motion.p>

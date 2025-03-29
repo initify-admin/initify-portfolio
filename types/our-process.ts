@@ -1,4 +1,4 @@
-export interface UseCaseItem {
+export interface ProcessItem {
   title: string;
   description: string;
 }
