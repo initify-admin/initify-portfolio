@@ -1,4 +1,5 @@
 import Contact from "@/components/contact";
+import FAQs from "@/components/faq";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import OurProcess from "@/components/our-process";
@@ -16,9 +17,10 @@ export default function Home() {
       <OurUses />
       <OurProcess />
       <OurProjects />
-      <Contact /> */}
+      <Contact /> 
+      <Trust />*/}
 
-      <Trust />
+      <FAQs />
     </main>
   );
 }
