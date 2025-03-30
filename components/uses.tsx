@@ -11,12 +11,12 @@ import { ourUses } from "@/data/uses";
 import { transitionDuration, transitionEffect } from "@/lib/utils";
 import UseItem from "./ui/use-item";
 
-export default function OurUses() {
+export default function Uses() {
   const contentRef = useRef(null);
   const isInView = useInView(contentRef, { once: true, margin: "-100px" });
 
   return (
-    <SectionWrapper className="mt-24">
+    <SectionWrapper id="uses" className="mt-24">
       <SectionContentWrapper>
         <SectionContent
           ref={contentRef}

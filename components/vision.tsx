@@ -17,7 +17,7 @@ export default function Vision() {
   const isInView = useInView(contentRef, { once: true, margin: "-100px" });
 
   return (
-    <SectionWrapper className="mt-24">
+    <SectionWrapper id="vision" className="mt-24">
       <SectionContentWrapper>
         <SectionContent
           ref={contentRef}

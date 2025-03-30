@@ -13,7 +13,7 @@ import {
 import { transitionDuration, transitionEffect } from "@/lib/utils";
 import ProcessItem from "./ui/process-item";
 
-export default function OurProcess() {
+export default function Process() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const contentRef = useRef(null);
@@ -29,7 +29,7 @@ export default function OurProcess() {
   }, []);
 
   return (
-    <SectionWrapper className="mt-24 py-24 bg-dark">
+    <SectionWrapper id="process" className="mt-24 py-24 bg-dark">
       <SectionContentWrapper>
         <SectionContent
           ref={contentRef}

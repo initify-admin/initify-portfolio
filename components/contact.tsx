@@ -34,7 +34,7 @@ export default function Contact() {
   };
 
   return (
-    <SectionWrapper className="mt-24">
+    <SectionWrapper id="contact" className="mt-24">
       <SectionContentWrapper>
         <SectionContent
           ref={contentRef}
@@ -55,6 +55,7 @@ export default function Contact() {
               <div className="flex flex-col gap-y-1">
                 <h1 className={contactInfoHeadingClassName}>E-mail</h1>
                 <Link
+                  target="_blank"
                   href="mailto:ankitparallax@gmail.com"
                   className={contactInfoValueClassName}
                 >
@@ -65,6 +66,7 @@ export default function Contact() {
               <div className="flex flex-col gap-y-1">
                 <h1 className={contactInfoHeadingClassName}>Phone</h1>
                 <Link
+                  target="_blank"
                   href="tel:+918371064658"
                   className={contactInfoValueClassName}
                 >

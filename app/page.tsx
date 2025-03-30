@@ -2,9 +2,9 @@ import Contact from "@/components/contact";
 import FAQs from "@/components/faq";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
-import OurProcess from "@/components/process";
-import OurProjects from "@/components/projects";
-import OurUses from "@/components/uses";
+import Process from "@/components/process";
+import Projects from "@/components/projects";
+import Uses from "@/components/uses";
 import Trust from "@/components/trust";
 import Vision from "@/components/vision";
 import Footer from "@/components/footer";
@@ -12,16 +12,15 @@ import Footer from "@/components/footer";
 export default function Home() {
   return (
     <main className="flex flex-col items-start justify-start w-full">
-      {/* <Header />
+      <Header />
       <Hero />
       <Vision />
-      <OurUses />
-      <OurProcess />
-      <OurProjects />
+      <Uses />
+      <Process />
+      <Projects />
       <Contact />
       <Trust />
-      <FAQs /> */}
-
+      <FAQs />
       <Footer />
     </main>
   );

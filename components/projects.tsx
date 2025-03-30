@@ -11,12 +11,12 @@ import { transitionDuration, transitionEffect } from "@/lib/utils";
 import ProjectItem from "./ui/project-item";
 import { ourPorjects } from "@/data/projects";
 
-export default function OurProjects() {
+export default function Projects() {
   const contentRef = useRef(null);
   const isInView = useInView(contentRef, { once: true, margin: "-100px" });
 
   return (
-    <SectionWrapper className="mt-24">
+    <SectionWrapper id="projects" className="mt-24">
       <SectionContentWrapper>
         <SectionContent
           ref={contentRef}

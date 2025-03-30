@@ -15,7 +15,7 @@ export default function FAQs() {
   const contentRef = useRef(null);
   const isInView = useInView(contentRef, { once: true, margin: "-100px" });
   return (
-    <SectionWrapper className="mt-32">
+    <SectionWrapper id="faq" className="mt-32">
       <SectionContentWrapper>
         <SectionContent
           ref={contentRef}

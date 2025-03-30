@@ -24,7 +24,10 @@ export default function Hero() {
   const scale = useSpring(rawScale, { stiffness: 100, damping: 20, mass: 0.7 });
 
   return (
-    <SectionWrapper className="flex flex-col justify-start items-start gap-y-16">
+    <SectionWrapper
+      id="hero"
+      className="flex flex-col justify-start items-start gap-y-16"
+    >
       <SectionContentWrapper className="pt-16 md:pt-[6.75rem] 2xl:pt-[11.25rem]">
         <SectionContent className="flex justify-start flex-col lg:flex-row lg:justify-between gap-x-28 gap-y-8">
           <motion.div

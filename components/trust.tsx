@@ -16,7 +16,7 @@ export default function Trust() {
   const isInView = useInView(contentRef, { once: true, margin: "-100px" });
 
   return (
-    <SectionWrapper className="mt-32">
+    <SectionWrapper id="trust" className="mt-32">
       <SectionContentWrapper>
         <SectionContent
           ref={contentRef}
