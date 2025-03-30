@@ -9,7 +9,7 @@ import {
 } from "./ui/section";
 import { transitionDuration, transitionEffect } from "@/lib/utils";
 import ProjectItem from "./ui/project-item";
-import { ourPorjects } from "@/data/our-projects";
+import { ourPorjects } from "@/data/projects";
 
 export default function OurProjects() {
   const contentRef = useRef(null);

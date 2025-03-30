@@ -5,27 +5,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { transitionDuration, transitionEffect } from "@/lib/utils";
-
-interface NavItem {
-  title: string;
-  href: string;
-}
-
-const navItems: NavItem[] = [
-  { title: "Home", href: "/" },
-  { title: "Projects", href: "/projects" },
-  { title: "About", href: "/about" },
-  { title: "Contact", href: "/contact" },
-];
-
-const footerItems: NavItem[] = [
-  { title: "Twitter", href: "https://www.twitter.com/initify" },
-  { title: "LinkedIn", href: "https://www.linkedin.com/initify" },
-  { title: "Instagram", href: "https://www.instagram.com/initify" },
-  { title: "Facebook", href: "https://www.facebook.com/initify" },
-  { title: "Privacy Policy", href: "/privacy-policy" },
-  { title: "Terms of Service", href: "/terms-of-service" },
-];
+import { navItems } from "@/data/header";
+import { socialItems } from "@/data/social";
 
 export default function Header() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -99,7 +80,7 @@ export default function Header() {
                 <nav>
                   <ul className="flex flex-col justify-start items-start">
                     {navItems.map((item) => (
-                      <Link key={item.title} href={item.href}>
+                      <Link key={item.title} href={item.link}>
                         <motion.li
                           whileHover={{ x: 10 }}
                           transition={{ duration: 0.2, ease: "easeInOut" }}
@@ -113,8 +94,8 @@ export default function Header() {
                 </nav>
 
                 <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-auto">
-                  {footerItems.map((item) => (
-                    <Link key={item.title} href={item.href}>
+                  {socialItems.map((item) => (
+                    <Link key={item.title} href={item.link}>
                       <motion.li
                         whileHover={{ x: 8 }}
                         transition={{ duration: 0.2, ease: "easeInOut" }}

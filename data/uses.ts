@@ -1,4 +1,4 @@
-import { UseCaseItem } from "@/types/our-uses";
+import { UseCaseItem } from "@/types/uses";
 
 export const ourUses: UseCaseItem[] = [
   {

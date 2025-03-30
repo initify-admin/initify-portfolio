@@ -1,6 +1,6 @@
 import UiAstraImage from "@/public/images/ui-astra.webp";
 import NeurouteAiImage from "@/public/images/neuroute-ai.webp";
-import { ProjectItem } from "@/types/our-projects";
+import { ProjectItem } from "@/types/projects";
 
 export const ourPorjects: ProjectItem[] = [
   {

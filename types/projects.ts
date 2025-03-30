@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { OurUse } from "./our-uses";
+import { OurUse } from "./uses";
 
 export interface ProjectItem {
   name: string;

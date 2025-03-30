@@ -1,6 +1,6 @@
 "use client";
 
-import { ProjectItem as ProjectItemProps } from "@/types/our-projects";
+import { ProjectItem as ProjectItemProps } from "@/types/projects";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
