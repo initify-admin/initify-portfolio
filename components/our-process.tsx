@@ -19,6 +19,7 @@ interface ProcessItemProps {
   isActive: boolean;
   onHover: () => void;
   onClick: () => void;
+  view: "small" | "large";
 }
 
 export default function OurProcess() {
@@ -29,7 +30,7 @@ export default function OurProcess() {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 1280);
     };
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
@@ -47,21 +48,21 @@ export default function OurProcess() {
             duration: transitionDuration,
             ease: transitionEffect,
           }}
-          className="flex flex-col gap-y-[10rem]"
+          className="flex flex-col gap-y-20 xl:gap-y-[10rem]"
         >
-          <div className="flex justify-between items-start">
+          <div className="flex flex-col gap-y-8 xl:flex-row justify-between items-start">
             <SectionHeading className="text-white">
               /Our Process/
             </SectionHeading>
 
-            <SectionSubheading className="w-[60%] text-white">
+            <SectionSubheading className="xl:w-[60%] text-white">
               Our mission is to help businesses grow through strategic design,
               creating work that performs as good as it looks.
             </SectionSubheading>
           </div>
 
           {/* Process Items Container */}
-          <div className="w-full flex gap-x-2">
+          <div className="w-full flex flex-col gap-y-4 xl:flex-row gap-x-4">
             {ourProcesses.map((process, index) => (
               <ProcessItem
                 key={index}
@@ -71,6 +72,7 @@ export default function OurProcess() {
                 isActive={index === activeIndex}
                 onClick={() => isMobile && setActiveIndex(index)}
                 onHover={() => !isMobile && setActiveIndex(index)}
+                view={isMobile ? "small" : "large"}
               />
             ))}
           </div>
@@ -87,6 +89,7 @@ function ProcessItem({
   isActive,
   onHover,
   onClick,
+  view,
 }: ProcessItemProps) {
   return (
     <motion.div
