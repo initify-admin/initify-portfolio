@@ -4,6 +4,7 @@ import Hero from "@/components/hero";
 import OurProcess from "@/components/our-process";
 import OurProjects from "@/components/our-projects";
 import OurUses from "@/components/our-uses";
+import Trust from "@/components/trust";
 import Vision from "@/components/vision";
 
 export default function Home() {
@@ -14,8 +15,10 @@ export default function Home() {
       <Vision />
       <OurUses />
       <OurProcess />
-      <OurProjects /> */}
-      <Contact />
+      <OurProjects />
+      <Contact /> */}
+
+      <Trust />
     </main>
   );
 }
