@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
 
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import {
   SectionContent,
   SectionContentWrapper,
@@ -9,13 +10,26 @@ import {
 import Link from "next/link";
 import { socialItems } from "@/data/social";
 import { navItems } from "@/data/header";
+import { transitionDuration, transitionEffect } from "@/lib/utils";
 import { scrollToSection } from "@/lib/utils";
 
 export default function Footer() {
+  const contentRef = useRef(null);
+  const isInView = useInView(contentRef, { once: true, margin: "-100px" });
+
   return (
     <SectionWrapper id="footer" className="bg-dark mt-40 pt-16 pb-5">
       <SectionContentWrapper>
-        <SectionContent className="flex flex-col gap-y-16">
+        <SectionContent
+          ref={contentRef}
+          initial={{ opacity: 0, y: 100 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: transitionDuration,
+            ease: transitionEffect,
+          }}
+          className="flex flex-col gap-y-16"
+        >
           <div className="flex flex-col gap-y-16 justify-between xl:flex-row">
             <div className="flex flex-col gap-y-8 sm:gap-y-10 xl:w-[40%]">
               <h1 className="text-white uppercase font-medium font-onest text-[2.75rem] sm:text-[3.25rem] xl:text-[3.75rem] tracking-[0.193rem] sm:tracking-[-0.228rem] xl:tracking-[-0.263rem] leading-[3.025rem] sm:leading-[3.575rem] xl:leading-[4.125rem]">
