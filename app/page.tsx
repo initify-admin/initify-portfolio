@@ -7,11 +7,12 @@ import OurProjects from "@/components/projects";
 import OurUses from "@/components/uses";
 import Trust from "@/components/trust";
 import Vision from "@/components/vision";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-start justify-start w-full">
-      <Header />
+      {/* <Header />
       <Hero />
       <Vision />
       <OurUses />
@@ -19,7 +20,9 @@ export default function Home() {
       <OurProjects />
       <Contact />
       <Trust />
-      <FAQs />
+      <FAQs /> */}
+
+      <Footer />
     </main>
   );
 }
