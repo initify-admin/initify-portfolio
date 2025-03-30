@@ -92,7 +92,7 @@ const SectionSubheading = forwardRef<
   <motion.h1
     ref={ref}
     className={cn(
-      "text-[2.75rem] sm:text-[3.25rem] xl:text-[3.75rem] font-onest font-medium text-dark tracking-[-0.193rem] sm:tracking-[-0.228rem] xl:tracking-[-0.263rem] leading-[3.025rem] sm:leading-[3.575rem] xl:leading-[4.125rem]",
+      "text-[2.5rem] sm:text-[2.75rem] xl:text-[3.25rem] font-onest font-medium text-dark tracking-[-0.175rem] sm:tracking-[-0.193rem] xl:tracking-[-0.228rem] leading-[2.75rem] sm:leading-[3.025rem] xl:leading-[3.575rem]",
       className
     )}
     {...props}
