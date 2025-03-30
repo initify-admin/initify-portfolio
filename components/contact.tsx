@@ -44,13 +44,13 @@ export default function Contact() {
             duration: transitionDuration,
             ease: transitionEffect,
           }}
-          className="flex flex-col gap-y-16"
+          className="flex flex-col gap-y-12 sm:gap-y-16 xl:gap-y-20"
         >
           <h1 className="font-onest font-medium text-dark text-[2.25rem] lg:text-[2.5rem] xl:text-[2.625rem] tracking-[-0.158rem] lg:tracking-[-0.175rem] xl:tracking-[-0.184rem] leading-[2.475rem] lg:leading-[2.75rem] xl:leading-[2.888rem]">
             Get in Touch
           </h1>
 
-          <div className="flex justify-between">
+          <div className="flex flex-col-reverse xl:flex-row justify-between gap-y-16 sm:gap-y-20">
             <div className="flex flex-col gap-y-8">
               <div className="flex flex-col gap-y-1">
                 <h1 className={contactInfoHeadingClassName}>E-mail</h1>
@@ -85,14 +85,17 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="w-[60%] flex flex-col gap-y-24">
+            <div className="xl:w-[60%] flex flex-col gap-y-12 sm:gap-y-16 xl:gap-y-24">
               <h1 className="font-onest font-medium text-dark text-[2.25rem] lg:text-[2.5rem] xl:text-[2.625rem] tracking-[-0.158rem] lg:tracking-[-0.175rem] xl:tracking-[-0.184rem] leading-[2.475rem] lg:leading-[2.75rem] xl:leading-[2.888rem]">
                 Got a project in mind? We{"'"}d love to hear about it. Big or
                 small, we{"'"}re here to help bring your ideas to life.
               </h1>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-y-16">
-                <div className="flex gap-x-8">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-y-8 sm:gap-y-12 xl:gap-y-16"
+              >
+                <div className="flex flex-col sm:flex-row gap-x-8 gap-y-8">
                   <input
                     type="text"
                     placeholder="Name*"
