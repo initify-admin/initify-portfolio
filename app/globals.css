@@ -14,18 +14,21 @@
   --dark: #0c120c;
   --body: #0c120c99;
   --primary-blue: #0048f9;
+  --border: rgba(12, 18, 12, 0.6);
 }
 
 .dark {
   --dark: #0c120c99;
   --body: #0c120c99;
   --primary-blue: #0048f9;
+  --border: rgba(12, 18, 12, 0.6);
 }
 
 @theme inline {
   --color-dark: var(--dark);
   --color-body: var(--body);
   --color-primary-blue: var(--primary-blue);
+  --color-border: var(--border);
 }
 
 @layer base {
