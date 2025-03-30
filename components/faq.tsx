@@ -1,5 +1,8 @@
 "use client";
 
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import { transitionDuration, transitionEffect } from "@/lib/utils";
 import { faqs } from "@/data/faqs";
 import {
   SectionContent,
@@ -9,10 +12,21 @@ import {
 import { Accordion, AccordionTrigger, AccordionContent } from "./ui/accordion";
 
 export default function FAQs() {
+  const contentRef = useRef(null);
+  const isInView = useInView(contentRef, { once: true, margin: "-100px" });
   return (
     <SectionWrapper className="mt-24">
       <SectionContentWrapper>
-        <SectionContent className="flex flex-col xl:flex-row gap-y-8 sm:gap-y-12 gap-x-36">
+        <SectionContent
+          ref={contentRef}
+          initial={{ opacity: 0, y: 100 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: transitionDuration,
+            ease: transitionEffect,
+          }}
+          className="flex flex-col xl:flex-row gap-y-8 sm:gap-y-12 gap-x-36"
+        >
           <div className="flex flex-col gap-y-6 sm:gap-y-8">
             <h1 className="font-onest font-medium text-dark text-[2.25rem] lg:text-[2.5rem] xl:text-[2.625rem] tracking-[-0.158rem] lg:tracking-[-0.175rem] xl:tracking-[-0.184rem] leading-[2.475rem] lg:leading-[2.75rem] xl:leading-[2.888rem]">
               Common Qs
