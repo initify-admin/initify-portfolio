@@ -5,7 +5,6 @@ import { useInView } from "framer-motion";
 import {
   SectionContent,
   SectionContentWrapper,
-  SectionSubheading,
   SectionWrapper,
 } from "./ui/section";
 import { transitionDuration, transitionEffect } from "@/lib/utils";
@@ -27,14 +26,14 @@ export default function OurProjects() {
             duration: transitionDuration,
             ease: transitionEffect,
           }}
-          className="flex flex-col gap-y-20"
+          className="flex flex-col gap-y-12 sm:gap-y-16 xl:gap-y-20"
         >
-          <div className="flex flex-col gap-y-8">
-            <SectionSubheading className="xl:text-[3.75rem] xl:tracking-[-0.263rem] xl:leading-[4.125rem]">
+          <div className="flex flex-col gap-y-4">
+            <h1 className="font-onest font-medium text-dark text-[2.25rem] lg:text-[2.5rem] xl:text-[2.625rem] tracking-[-0.158rem] lg:tracking-[-0.175rem] xl:tracking-[-0.184rem] leading-[2.475rem] lg:leading-[2.75rem] xl:leading-[2.888rem]">
               Our Recent Projects
-            </SectionSubheading>
+            </h1>
 
-            <p className="text-lg leading-6 text-body font-onest font-medium tracking-[-0.023rem] xl:w-[37.5rem]">
+            <p className="text-body font-onest font-medium text-base sm:text-lg tracking-[-0.019rem] sm:tracking-[-0.023rem] leading-[1.313rem] sm:leading-[1.575rem] xl:w-[37.5rem]">
               Dive into our diverse collection of innovative projects, where
               creativity meets cutting-edge technology to solve real-world
               challenges.
@@ -42,7 +41,7 @@ export default function OurProjects() {
           </div>
 
           {/* Process Items Container */}
-          <div className="grid grid-cols-2 gap-4 w-full">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 w-full">
             {ourPorjects.map((project, index) => (
               <ProjectItem
                 key={index}

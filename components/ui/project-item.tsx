@@ -35,7 +35,7 @@ export default function ProjectItem({
         </motion.div>
       </div>
 
-      <h1 className="text-[1.875rem] leading-[2.25rem] tracking-[-0.075rem] text-dark font-onest font-medium">
+      <h1 className="text-[1.75rem] xl:text-[1.875rem] tracking-[-0.065rem] sm:tracking-[-0.07rem] xl:tracking-[-0.075rem] leading-[1.95rem] sm:leading-[2.1rem] xl:leading-[2.25rem] text-dark font-onest font-medium">
         {name}
       </h1>
 
@@ -48,7 +48,7 @@ export default function ProjectItem({
         {works.map((work, index) => (
           <div
             key={index}
-            className="flex items-center justify-center px-3 py-1.5 text-body rounded-xl border font-medium border-[rgba(12,18,12,.6)]"
+            className="flex items-center justify-center px-3 py-1.5 text-body rounded-xl border font-medium border-[rgba(12,18,12,.6)] text-sm sm:text-base"
           >
             {work}
           </div>
