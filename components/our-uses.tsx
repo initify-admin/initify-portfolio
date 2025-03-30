@@ -7,7 +7,6 @@ import {
   SectionWrapper,
   SectionContentWrapper,
   SectionContent,
-  SectionSubheading,
 } from "./ui/section";
 import { ourUses } from "@/data/our-uses";
 import { transitionDuration, transitionEffect } from "@/lib/utils";
@@ -33,11 +32,11 @@ export default function OurUses() {
             duration: transitionDuration,
             ease: transitionEffect,
           }}
-          className="flex flex-col gap-y-20"
+          className="flex flex-col gap-y-12 lg:gap-y-16 xl:gap-y-20"
         >
-          <SectionSubheading className="max-w-[810px] xl:text-[2.625rem] xl:tracking-[-0.184rem] xl:leading-[2.888rem]">
+          <h1 className="xl:w-[810px] font-onest font-medium text-dark text-[2.25rem] lg:text-[2.5rem] xl:text-[2.625rem] tracking-[-0.158rem] lg:tracking-[-0.175rem] xl:tracking-[-0.184rem] leading-[2.475rem] lg:leading-[2.75rem] xl:leading-[2.888rem]">
             This is how we help ambitious companies succeed.
-          </SectionSubheading>
+          </h1>
 
           <div className="flex flex-col divide-y divide-[rgba(151,151,151,0.2)]">
             {ourUses.map((use, index) => (
@@ -57,77 +56,95 @@ export default function OurUses() {
 
 function UseItem({ index, title, description }: UseItemProps) {
   return (
-    <motion.div
-      whileHover="hover"
-      initial="initial"
-      className="w-full py-6 rounded-lg bg-transparent flex justify-between items-center transition-colors duration-300"
-      variants={{
-        initial: { backgroundColor: "transparent" },
-        hover: { backgroundColor: "var(--primary-blue)" },
-      }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-    >
+    <>
       <motion.div
+        whileHover="hover"
+        initial="initial"
+        className="hidden w-full py-6 rounded-lg bg-transparent mac:flex justify-between items-center transition-colors duration-300"
         variants={{
-          initial: { x: 0 },
-          hover: { x: 20 },
+          initial: { backgroundColor: "transparent" },
+          hover: { backgroundColor: "var(--primary-blue)" },
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="flex items-center justify-start gap-x-28"
       >
-        {/* Explicitly animate color */}
-        <motion.h1
+        <motion.div
           variants={{
-            initial: { color: "var(--dark)" },
-            hover: { color: "#ffffff" },
+            initial: { x: 0 },
+            hover: { x: 20 },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="font-medium font-onest text-4xl tracking-[-0.158rem]"
+          className="flex items-center justify-start gap-x-28"
         >
-          0{index + 1}
-        </motion.h1>
+          {/* Explicitly animate color */}
+          <motion.h1
+            variants={{
+              initial: { color: "var(--dark)" },
+              hover: { color: "#ffffff" },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="font-medium font-onest text-4xl tracking-[-0.158rem]"
+          >
+            0{index + 1}
+          </motion.h1>
 
-        <motion.h1
-          variants={{
-            initial: { color: "var(--dark)" },
-            hover: { color: "#ffffff" },
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="font-medium font-onest text-[3.75rem] tracking-[-0.263rem] leading-[3.75rem] whitespace-nowrap"
-        >
-          {title}
-        </motion.h1>
-      </motion.div>
-
-      <motion.div
-        variants={{
-          initial: { x: 0 },
-          hover: { x: -20 },
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="flex items-center justify-start gap-x-8 relative"
-      >
-        <motion.p
-          variants={{
-            initial: { opacity: 0, color: "var(--dark)" },
-            hover: { opacity: 1, color: "#ffffff" },
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="text-base sm:text-lg xl:text-xl font-onest tracking-[-0.023rem] leading-6 w-[610px] font-medium"
-        >
-          {description}
-        </motion.p>
+          <motion.h1
+            variants={{
+              initial: { color: "var(--dark)" },
+              hover: { color: "#ffffff" },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="font-medium font-onest text-[3.75rem] tracking-[-0.263rem] leading-[3.75rem] whitespace-nowrap"
+          >
+            {title}
+          </motion.h1>
+        </motion.div>
 
         <motion.div
           variants={{
-            initial: { opacity: 1, color: "var(--dark)" },
-            hover: { opacity: 0, color: "#ffffff" },
+            initial: { x: 0 },
+            hover: { x: -20 },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="flex items-center justify-start gap-x-8 relative"
         >
-          <PlusIcon className="size-10" />
+          <motion.p
+            variants={{
+              initial: { opacity: 0, color: "var(--dark)" },
+              hover: { opacity: 1, color: "#ffffff" },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="text-xl font-onest tracking-[-0.023rem] leading-6 w-[610px] font-medium"
+          >
+            {description}
+          </motion.p>
+
+          <motion.div
+            variants={{
+              initial: { opacity: 1, color: "var(--dark)" },
+              hover: { opacity: 0, color: "#ffffff" },
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          >
+            <PlusIcon className="size-10" />
+          </motion.div>
         </motion.div>
       </motion.div>
-    </motion.div>
+
+      <div className="flex mac:hidden flex-col gap-y-4 py-6">
+        <div className="flex items-center gap-x-6 sm:gap-x-16 md:gap-x-24">
+          <h1 className="font-medium font-onest text-2xl tracking-[-0.11rem] text-primary-blue">
+            0{index + 1}
+          </h1>
+
+          <h1 className="font-medium font-onest text-[2.5rem] sm:text-[2.75rem] tracking-[-0.2rem] leading[2.75rem] sm:leading[3.025rem] whitespace-nowrap">
+            {title}
+          </h1>
+        </div>
+
+        <p className="text-base sm:text-lg text-body font-onest tracking-[-0.023rem] leading-6 font-medium">
+          {description}
+        </p>
+      </div>
+    </>
   );
 }

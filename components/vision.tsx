@@ -30,7 +30,7 @@ export default function Vision() {
         >
           <SectionHeading>/Our Vision/</SectionHeading>
 
-          <div className="w-full xl:w-[800px] flex flex-col gap-y-12 sm:gap-y-16 xl:gap-y-24">
+          <div className="w-full xl:w-[60%] flex flex-col gap-y-12 sm:gap-y-16 xl:gap-y-24">
             <div className="flex flex-col gap-y-8">
               <SectionSubheading>
                 Whether it{"'"}s a website, an app, or a complete brand identity

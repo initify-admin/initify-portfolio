@@ -51,3 +51,16 @@
     border-radius: 6px;
   }
 }
+@layer utilities {
+  @media (width >= 90rem /* 1440px */) {
+    .mac\:hidden {
+      display: none;
+    }
+    .mac\:block {
+      display: block;
+    }
+    .mac\:flex {
+      display: flex;
+    }
+  }
+}
