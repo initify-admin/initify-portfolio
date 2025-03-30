@@ -10,6 +10,8 @@ import {
 import { transitionDuration, transitionEffect } from "@/lib/utils";
 import Link from "next/link";
 import { MoveUpRight } from "lucide-react";
+import emailjs from "emailjs-com";
+import { toast } from "sonner";
 
 export default function Contact() {
   const contentRef = useRef(null);
@@ -23,14 +25,36 @@ export default function Contact() {
   const contactInfoValueClassName =
     "font-medium font-onest text-[1.375rem] text-body hover:text-primary-blue transition-colors leading-7";
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here, such as sending the data to an API or email service.
-    console.log("Form submitted:", { name, email, message });
-    // Reset form fields after submission
-    setName("");
-    setEmail("");
-    setMessage("");
+
+    const toastId = toast.loading("Sending message...");
+
+    try {
+      const templateParams = {
+        name,
+        email,
+        message,
+      };
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      toast.dismiss(toastId);
+      toast.success("Message sent successfully!");
+
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      toast.dismiss(toastId);
+      toast.error("Failed to send message. Please try again.");
+    }
   };
 
   return (
