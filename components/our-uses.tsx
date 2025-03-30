@@ -7,7 +7,6 @@ import {
   SectionWrapper,
   SectionContentWrapper,
   SectionContent,
-  SectionHeading,
   SectionSubheading,
 } from "./ui/section";
 import { ourUses } from "@/data/our-uses";
@@ -36,13 +35,9 @@ export default function OurUses() {
           }}
           className="flex flex-col gap-y-20"
         >
-          <div className="w-full flex justify-between items-start">
-            <SectionSubheading className="max-w-[810px]">
-              This is how we help ambitious companies succeed.
-            </SectionSubheading>
-
-            <SectionHeading>/Our Uses/</SectionHeading>
-          </div>
+          <SectionSubheading className="max-w-[810px] xl:text-[2.625rem] xl:tracking-[-0.184rem] xl:leading-[2.888rem]">
+            This is how we help ambitious companies succeed.
+          </SectionSubheading>
 
           <div className="flex flex-col divide-y divide-[rgba(151,151,151,0.2)]">
             {ourUses.map((use, index) => (
@@ -98,7 +93,7 @@ function UseItem({ index, title, description }: UseItemProps) {
             hover: { color: "#ffffff" },
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="font-medium font-onest text-[4.5rem] tracking-[-0.315rem] leading-[4.95rem] whitespace-nowrap"
+          className="font-medium font-onest text-[3.75rem] tracking-[-0.263rem] leading-[3.75rem] whitespace-nowrap"
         >
           {title}
         </motion.h1>

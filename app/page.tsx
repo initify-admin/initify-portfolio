@@ -13,7 +13,6 @@ export default function Home() {
       <Vision />
       <OurUses />
       <OurProcess />
-
       <OurProjects />
 
       {/* dummy height to test scroll */}

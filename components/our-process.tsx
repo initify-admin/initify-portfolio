@@ -109,7 +109,7 @@ function ProcessItem({
       <motion.p
         animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="tracking[-0.055rem] font-onest font-medium text-white/80 text-[1.375rem] leading-[1.875rem] max-w-[28.125rem]"
+        className="tracking-[-0.055rem] font-onest font-medium text-white/80 text-[1.375rem] leading-[1.875rem] max-w-[28.125rem]"
       >
         {description}
       </motion.p>

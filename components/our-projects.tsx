@@ -5,7 +5,6 @@ import { useInView } from "framer-motion";
 import {
   SectionContent,
   SectionContentWrapper,
-  SectionHeading,
   SectionSubheading,
   SectionWrapper,
 } from "./ui/section";
@@ -28,18 +27,18 @@ export default function OurProjects() {
             duration: transitionDuration,
             ease: transitionEffect,
           }}
-          className="flex flex-col gap-y-[10rem]"
+          className="flex flex-col gap-y-20"
         >
-          <div className="flex justify-between items-start">
-            <SectionHeading className="text-dark">
-              /Our Recent Projects/
-            </SectionHeading>
+          <div className="flex flex-col gap-y-8">
+            <SectionSubheading className="xl:text-[3.75rem] xl:tracking-[-0.263rem] xl:leading-[4.125rem]">
+              Our Recent Projects
+            </SectionSubheading>
 
-            <SectionSubheading className="w-[60%] text-dark">
+            <p className="text-lg leading-6 text-body font-onest font-medium tracking-[-0.023rem] xl:w-[37.5rem]">
               Dive into our diverse collection of innovative projects, where
               creativity meets cutting-edge technology to solve real-world
               challenges.
-            </SectionSubheading>
+            </p>
           </div>
 
           {/* Process Items Container */}
