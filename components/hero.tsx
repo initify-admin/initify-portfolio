@@ -6,6 +6,11 @@ import Image from "next/image";
 import HeroImg from "@/public/images/hero.jpg";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { transitionDuration, transitionEffect } from "@/lib/utils";
+import {
+  SectionContentWrapper,
+  SectionContent,
+  SectionWrapper,
+} from "./ui/section";
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -19,9 +24,12 @@ export default function Hero() {
   const scale = useSpring(rawScale, { stiffness: 100, damping: 20, mass: 0.7 });
 
   return (
-    <section className="w-full flex flex-col justify-start items-start gap-y-16">
-      <div className="w-full flex justify-center px-6 sm:px-8 xl:px-16 pt-16 md:pt-[6.75rem] 2xl:pt-[11.25rem]">
-        <div className="w-full max-w-[1800px] flex justify-start flex-col lg:flex-row lg:justify-between gap-x-28 gap-y-8">
+    <SectionWrapper
+      id="hero"
+      className="flex flex-col justify-start items-start gap-y-16"
+    >
+      <SectionContentWrapper className="pt-16 md:pt-[6.75rem] 2xl:pt-[11.25rem]">
+        <SectionContent className="flex justify-start flex-col lg:flex-row lg:justify-between gap-x-28 gap-y-8">
           <motion.div
             className="w-full max-w-[610px] 2xl:max-w-[780px] flex items-start justify-start"
             initial={{ x: "-50%", opacity: 0 }}
@@ -58,8 +66,8 @@ export default function Hero() {
               <MoveUpRight className="text-primary-blue size-5 lg:size-6 transition-transform duration-300 ease-in-out group-hover:rotate-45" />
             </button>
           </motion.div>
-        </div>
-      </div>
+        </SectionContent>
+      </SectionContentWrapper>
 
       <div ref={sectionRef} className="w-full max-w-screen overflow-hidden">
         <motion.div
@@ -84,6 +92,6 @@ export default function Hero() {
           />
         </motion.div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }
