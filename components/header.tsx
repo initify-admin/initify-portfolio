@@ -9,7 +9,7 @@ import {
   transitionDuration,
   transitionEffect,
 } from "@/lib/utils";
-import { navItems } from "@/data/header";
+import { navItems } from "@/data/nav";
 import { socialItems } from "@/data/social";
 
 export default function Header() {

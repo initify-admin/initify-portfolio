@@ -3,7 +3,7 @@
 import React, { forwardRef } from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Section as SectionType } from "@/types/header";
+import { Section as SectionType } from "@/types/nav";
 
 interface SectionWrapperProps extends HTMLMotionProps<"section"> {
   id: SectionType;

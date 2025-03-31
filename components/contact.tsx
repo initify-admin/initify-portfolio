@@ -17,6 +17,7 @@ import { MoveUpRight } from "lucide-react";
 import emailjs from "emailjs-com";
 import { toast } from "sonner";
 import { SendMessageRequest, SendMessageResponse } from "@/types/message";
+import { emailAddress } from "@/data/social";
 
 export default function Contact() {
   const contentRef = useRef(null);
@@ -121,10 +122,10 @@ export default function Contact() {
                 <h1 className={contactInfoHeadingClassName}>E-mail</h1>
                 <Link
                   target="_blank"
-                  href="mailto:ankitparallax@gmail.com"
+                  href={`mailto:${emailAddress}`}
                   className={contactInfoValueClassName}
                 >
-                  ankitparallax@gmail.com
+                  {emailAddress}
                 </Link>
               </div>
 

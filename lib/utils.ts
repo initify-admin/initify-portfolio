@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Section } from "@/types/header";
+import { Section } from "@/types/nav";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
