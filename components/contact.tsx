@@ -21,6 +21,7 @@ import { SendMessageRequest, SendMessageResponse } from "@/types/message";
 export default function Contact() {
   const contentRef = useRef(null);
   const isInView = useInView(contentRef, { once: true, margin: "-100px" });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
@@ -43,6 +44,8 @@ export default function Contact() {
       ) {
         throw new Error("EmailJS environment variables are missing.");
       }
+
+      setIsLoading(true);
 
       const msgReqPayload: SendMessageRequest = {
         message: buildDiscordMessage({
@@ -75,6 +78,10 @@ export default function Contact() {
         throw new Error("Failed to send email via EmailJS");
       }
 
+      setName("");
+      setEmail("");
+      setMessage("");
+
       toast.success("Message sent successfully!");
     } catch (error) {
       console.error("Error:", error);
@@ -87,9 +94,7 @@ export default function Contact() {
       }
     } finally {
       toast.dismiss(toastId);
-      setName("");
-      setEmail("");
-      setMessage("");
+      setIsLoading(false);
     }
   };
 
@@ -186,6 +191,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
+                  disabled={isLoading}
                   className="mr-auto tracking-[-0.7px] font-onest group cursor-pointer text-lg lg:text-xl text-dark flex items-center gap-x-2 font-medium border-b-2 border-dark p-1"
                 >
                   Send Message
