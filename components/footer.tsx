@@ -93,7 +93,7 @@ export default function Footer() {
 
           <div className="flex justify-between">
             <h1 className="font-onest font-medium text-white/80 text-sm sm:text-base">
-              ©2025 Opus, All Rights Reserved
+              ©2025 Initify, All Rights Reserved
             </h1>
           </div>
         </SectionContent>
