@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@discordjs/rest": "^2.4.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "discord-api-types": "^0.37.119",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.477.0",
