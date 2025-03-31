@@ -7,11 +7,16 @@ import {
   SectionContentWrapper,
   SectionWrapper,
 } from "./ui/section";
-import { transitionDuration, transitionEffect } from "@/lib/utils";
+import {
+  buildDiscordMessage,
+  transitionDuration,
+  transitionEffect,
+} from "@/lib/utils";
 import Link from "next/link";
 import { MoveUpRight } from "lucide-react";
 import emailjs from "emailjs-com";
 import { toast } from "sonner";
+import { SendMessageRequest, SendMessageResponse } from "@/types/message";
 
 export default function Contact() {
   const contentRef = useRef(null);
@@ -31,29 +36,60 @@ export default function Contact() {
     const toastId = toast.loading("Sending message...");
 
     try {
-      const templateParams = {
-        name,
-        email,
-        message,
+      if (
+        !process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ||
+        !process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ||
+        !process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      ) {
+        throw new Error("EmailJS environment variables are missing.");
+      }
+
+      const msgReqPayload: SendMessageRequest = {
+        message: buildDiscordMessage({
+          name,
+          email,
+          message,
+        }),
       };
 
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      );
+      const res = await fetch("/api/send-message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(msgReqPayload),
+      });
 
-      toast.dismiss(toastId);
+      const resData: SendMessageResponse = await res.json();
+      if (!res.ok || resData.status !== "success") {
+        throw new Error(resData.data.message || "Failed to send message");
+      }
+
+      try {
+        await emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          { name, email, message },
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        );
+      } catch (emailError) {
+        console.error("EmailJS failed:", emailError);
+        throw new Error("Failed to send email via EmailJS");
+      }
+
       toast.success("Message sent successfully!");
-
+    } catch (error) {
+      console.error("Error:", error);
+      if (error instanceof Error) {
+        toast.error(
+          error.message || "Failed to send message. Please try again."
+        );
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } finally {
+      toast.dismiss(toastId);
       setName("");
       setEmail("");
       setMessage("");
-    } catch (error) {
-      console.error("Failed to send email:", error);
-      toast.dismiss(toastId);
-      toast.error("Failed to send message. Please try again.");
     }
   };
 
