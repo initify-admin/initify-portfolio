@@ -6,3 +6,5 @@ export const socialItems: SocialItem[] = [
   { title: "Instagram", link: "https://www.instagram.com/initify" },
   { title: "Facebook", link: "https://www.facebook.com/initify" },
 ];
+
+export const emailAddress = "initify.business@gmail.com";

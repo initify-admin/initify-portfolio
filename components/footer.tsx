@@ -9,9 +9,10 @@ import {
 } from "./ui/section";
 import Link from "next/link";
 import { socialItems } from "@/data/social";
-import { navItems } from "@/data/header";
+import { navItems } from "@/data/nav";
 import { transitionDuration, transitionEffect } from "@/lib/utils";
 import { scrollToSection } from "@/lib/utils";
+import { emailAddress } from "@/data/social";
 
 export default function Footer() {
   const contentRef = useRef(null);
@@ -51,10 +52,10 @@ export default function Footer() {
 
               <Link
                 target="_blank"
-                href="mailto:ankitparallax@gmail.com"
+                href={`mailto:${emailAddress}`}
                 className="font-onest font-medium text-white text-2xl sm:text-3xl xl:text-4xl"
               >
-                ankitparallax@gmail.com
+                {emailAddress}
               </Link>
             </div>
           </div>
