@@ -68,7 +68,7 @@ export default function Contact() {
             duration: transitionDuration,
             ease: transitionEffect,
           }}
-          className="flex flex-col gap-y-12 sm:gap-y-16 xl:gap-y-20"
+          className="flex flex-col gap-y-12 lg:gap-y-14 xl:gap-y-16"
         >
           <h1 className="font-onest font-medium text-dark text-[2.25rem] lg:text-[2.5rem] xl:text-[2.625rem] tracking-[-0.158rem] lg:tracking-[-0.175rem] xl:tracking-[-0.184rem] leading-[2.475rem] lg:leading-[2.75rem] xl:leading-[2.888rem]">
             Get in Touch
@@ -112,7 +112,7 @@ export default function Contact() {
             </div>
 
             <div className="xl:w-[60%] flex flex-col gap-y-12 sm:gap-y-16 xl:gap-y-24">
-              <h1 className="font-onest font-medium text-dark text-[2.25rem] lg:text-[2.5rem] xl:text-[2.625rem] tracking-[-0.158rem] lg:tracking-[-0.175rem] xl:tracking-[-0.184rem] leading-[2.475rem] lg:leading-[2.75rem] xl:leading-[2.888rem]">
+              <h1 className="font-onest font-medium text-dark text-[1.625rem] sm:text-[1.75rem] xl:text-[1.875rem] tracking-[-0.065rem] sm:tracking-[-0.07rem] xl:tracking-[-0.075rem] leading-[1.95rem] sm:leading-[2.1rem] xl:leading-[2.25rem]">
                 Got a project in mind? We{"'"}d love to hear about it. Big or
                 small, we{"'"}re here to help bring your ideas to life.
               </h1>

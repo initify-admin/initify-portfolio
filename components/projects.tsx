@@ -26,7 +26,7 @@ export default function Projects() {
             duration: transitionDuration,
             ease: transitionEffect,
           }}
-          className="flex flex-col gap-y-12 sm:gap-y-16 xl:gap-y-20"
+          className="flex flex-col gap-y-12 lg:gap-y-14 xl:gap-y-16"
         >
           <div className="flex flex-col gap-y-4">
             <h1 className="font-onest font-medium text-dark text-[2.25rem] lg:text-[2.5rem] xl:text-[2.625rem] tracking-[-0.158rem] lg:tracking-[-0.175rem] xl:tracking-[-0.184rem] leading-[2.475rem] lg:leading-[2.75rem] xl:leading-[2.888rem]">
