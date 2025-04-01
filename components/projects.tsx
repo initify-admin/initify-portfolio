@@ -9,7 +9,7 @@ import {
 } from "./ui/section";
 import { transitionDuration, transitionEffect } from "@/lib/utils";
 import ProjectItem from "./ui/project-item";
-import { ourPorjects } from "@/data/projects";
+import { ourProjects } from "@/data/projects";
 
 export default function Projects() {
   const contentRef = useRef(null);
@@ -42,7 +42,7 @@ export default function Projects() {
 
           {/* Process Items Container */}
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 w-full">
-            {ourPorjects.map((project, index) => (
+            {ourProjects.map((project, index) => (
               <ProjectItem
                 key={index}
                 name={project.name}
