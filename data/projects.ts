@@ -4,6 +4,7 @@ import IntrepidAiImage from "@/public/images/intrepid-ai.webp";
 import DobbyAds from "@/public/images/dobby-ads.webp";
 import AwesomeSuit from "@/public/images/awesome-suit.webp";
 import SonySauto from "@/public/images/sony-sauto.webp";
+import Galadriel from "@/public/images/galadriel.webp";
 import { ProjectItem } from "@/types/projects";
 
 export const ourProjects: ProjectItem[] = [
@@ -42,5 +43,11 @@ export const ourProjects: ProjectItem[] = [
     liveLink: "https://www.awesomesuite.com/",
     image: AwesomeSuit,
     works: ["Motion Graphics", "Product Design", "Development"],
+  },
+  {
+    name: "Galadriel",
+    liveLink: "https://galadriel.com/",
+    image: Galadriel,
+    works: ["Development"],
   },
 ];
