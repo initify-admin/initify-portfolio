@@ -16,7 +16,7 @@ const onest = Onest({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://initify.com"),
+  metadataBase: new URL(`https://${process.env.NEXT_PUBLIC_WEBSITE_DOMAIN}`),
 
   title: {
     template: "%s | Initify - Digital Solutions for Businesses",
