@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import {
   SectionContent,
@@ -12,6 +12,7 @@ import ProjectItem from "./ui/project-item";
 import { ourProjects } from "@/data/projects";
 
 export default function Projects() {
+  const [showAllProjects, setShowAllProjects] = useState<boolean>(false);
   const contentRef = useRef(null);
   const isInView = useInView(contentRef, { once: true, margin: "-100px" });
 
@@ -40,17 +41,30 @@ export default function Projects() {
             </p>
           </div>
 
-          {/* Process Items Container */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 w-full">
-            {ourProjects.map((project, index) => (
-              <ProjectItem
-                key={index}
-                name={project.name}
-                liveLink={project.liveLink}
-                image={project.image}
-                works={project.works}
-              />
-            ))}
+          <div className="w-full flex flex-col justify-center items-center gap-y-6">
+            {/* Process Items Container */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 w-full">
+              {ourProjects
+                .slice(0, showAllProjects ? ourProjects.length : 6)
+                .map((project, index) => (
+                  <ProjectItem
+                    key={index}
+                    name={project.name}
+                    liveLink={project.liveLink}
+                    image={project.image}
+                    works={project.works}
+                  />
+                ))}
+            </div>
+
+            {ourProjects.length > 6 && (
+              <button
+                onClick={() => setShowAllProjects((prev) => !prev)}
+                className="tracking-[-0.7px] font-onest cursor-pointer text-lg lg:text-xl text-dark font-medium border-b-2 border-dark p-1"
+              >
+                {showAllProjects ? "Show Less" : "Show More"}
+              </button>
+            )}
           </div>
         </SectionContent>
       </SectionContentWrapper>
