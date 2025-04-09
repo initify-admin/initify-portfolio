@@ -1,7 +1,7 @@
 "use client";
 
-import { MoveUpRight } from "lucide-react";
 import { useRef } from "react";
+import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import HeroImg from "@/public/images/hero.webp";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";

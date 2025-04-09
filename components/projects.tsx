@@ -43,7 +43,7 @@ export default function Projects() {
 
           <div className="w-full flex flex-col justify-center items-center gap-y-6">
             {/* Process Items Container */}
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 w-full">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 w-full">
               {ourProjects
                 .slice(0, showAllProjects ? ourProjects.length : 6)
                 .map((project, index) => (
