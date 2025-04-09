@@ -1,11 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { ProjectItem as ProjectItemProps } from "@/types/projects";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export default function ProjectItem({
   name,
@@ -14,6 +14,17 @@ export default function ProjectItem({
   works,
 }: ProjectItemProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(true);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth > 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   return (
     <div
@@ -21,7 +32,10 @@ export default function ProjectItem({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-full flex justify-center items-center rounded-xl overflow-hidden">
+      <Link
+        href={liveLink}
+        className="w-full flex justify-center items-center rounded-xl overflow-hidden"
+      >
         <motion.div
           className="w-full h-auto rounded-xl"
           animate={{ scale: isHovered ? 1.05 : 1 }}
@@ -33,7 +47,7 @@ export default function ProjectItem({
             className="w-full h-auto object-cover rounded-xl"
           />
         </motion.div>
-      </div>
+      </Link>
 
       <h1 className="text-[1.75rem] xl:text-[1.875rem] tracking-[-0.065rem] sm:tracking-[-0.07rem] xl:tracking-[-0.075rem] leading-[1.95rem] sm:leading-[2.1rem] xl:leading-[2.25rem] text-dark font-onest font-medium">
         {name}
@@ -41,8 +55,11 @@ export default function ProjectItem({
 
       <motion.div
         className="flex gap-x-2 items-center flex-wrap"
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
+        initial={{ y: isLargeScreen ? 20 : 0, opacity: isLargeScreen ? 0 : 1 }}
+        animate={{
+          y: isLargeScreen ? (isHovered ? 0 : 20) : 0,
+          opacity: isLargeScreen ? (isHovered ? 1 : 0) : 1,
+        }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         {works.map((work, index) => (
