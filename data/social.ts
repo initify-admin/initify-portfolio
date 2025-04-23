@@ -7,4 +7,4 @@ export const socialItems: SocialItem[] = [
   { title: "Facebook", link: "https://www.facebook.com/initify" },
 ];
 
-export const emailAddress = "initify.business@gmail.com";
+export const emailAddress = "business@initify.com";
